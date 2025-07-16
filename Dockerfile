@@ -1,24 +1,12 @@
-# Stage 1: Use Maven with Amazon Corretto 17 for build
-FROM maven:3.9.6-amazoncorretto-17 as builder
+FROM jenkins/jenkins:lts
 
-# Set working directory
-WORKDIR /plugin
+USER root
 
-# Copy source code
-COPY . .
+# Optional: install curl if needed
+RUN apt-get update && apt-get install -y curl
 
-# Skip tests and license plugin to avoid Java 17 module error
-RUN mvn clean install -DskipTests -Dlicense.skip=true
+# Switch back to jenkins user
+USER jenkins
 
-
-# Stage 2: (Optional) Just output the built .hpi plugin artifact
-# If you want to run Jenkins with this plugin, you can extend a Jenkins image instead
-FROM amazoncorretto:17 as output
-
-WORKDIR /output
-
-# Copy .hpi or .jar plugin from the build stage
-COPY --from=builder /plugin/target/*.hpi .
-
-# Default command just lists the output
-CMD ["ls", "-l", "/output"]
+# Install the unique-id plugin
+RUN jenkins-plugin-cli --plugins unique-id
