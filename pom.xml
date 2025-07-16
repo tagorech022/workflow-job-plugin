@@ -425,6 +425,26 @@
             will be changed to in there source to support eclipse soon (hpi, license, localizer, access-modifier).
             see also: http://wiki.eclipse.org/M2E_compatible_maven_plugins
         -->
+	      <project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.jenkins.plugins</groupId>
+    <artifactId>plugin</artifactId>
+    <version>5.17</version>
+  </parent>
+
+  <artifactId>workflow-job-plugin</artifactId>
+  <name>Workflow Job Plugin</name> <!-- ✅ This is the name shown in SonarQube -->
+
+  <!-- Add description for better clarity in Sonar UI -->
+  <description>This plugin provides job type implementation for Jenkins Pipeline jobs</description>
+  
+  <!-- other plugin configs here -->
+</project>
+
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
