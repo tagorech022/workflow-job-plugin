@@ -4,45 +4,28 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.jenkins.plugins</groupId>
+        <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>5.67</version>
+        <version>5.17</version> <!-- ✅ Valid version for Java 17 -->
     </parent>
 
     <groupId>org.jenkins-ci.plugins</groupId>
-    <artifactId>your-plugin-id</artifactId>
+    <artifactId>workflow-job</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>hpi</packaging>
 
-    <name>Your Jenkins Plugin</name>
-    <description>A modern Jenkins plugin for demonstration.</description>
-    <url>https://github.com/your-org/your-plugin</url>
+    <name>Workflow Job Plugin</name>
+    <url>https://github.com/tagorech022/workflow-job-plugin</url>
 
     <properties>
-        <jenkins.version>2.426.1</jenkins.version> <!-- Minimum Jenkins core version -->
-        <java.level>11</java.level> <!-- You can change to 17 if using Java 17 -->
+        <jenkins.version>2.452</jenkins.version> <!-- Or whatever Jenkins core version you need -->
+        <java.level>17</java.level>
     </properties>
 
-    <dependencies>
-        <!-- Example: Jenkins workflow-step-api dependency -->
-        <dependency>
-            <groupId>org.jenkins-ci.plugins.workflow</groupId>
-            <artifactId>workflow-step-api</artifactId>
-            <version>2.28</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Add more plugin or library dependencies here as needed -->
-    </dependencies>
-
-    <build>
-        <plugins>
-            <!-- Jenkins Plugin HPI Plugin -->
-            <plugin>
-                <groupId>org.jenkins-ci.tools</groupId>
-                <artifactId>maven-hpi-plugin</artifactId>
-                <extensions>true</extensions>
-            </plugin>
-        </plugins>
-    </build>
+    <scm>
+        <connection>scm:git:git://github.com/tagorech022/workflow-job-plugin.git</connection>
+        <developerConnection>scm:git:ssh://github.com/tagorech022/workflow-job-plugin.git</developerConnection>
+        <url>https://github.com/tagorech022/workflow-job-plugin</url>
+        <tag>HEAD</tag>
+    </scm>
 </project>
